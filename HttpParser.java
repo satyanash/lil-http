@@ -1,12 +1,29 @@
 package satyanash.jHTTP;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.InputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class HttpParser
 {
-	public static HttpRequest parseRequest( String[] requestStrings) throws InvalidHttpRequestException
+	public static HttpRequest parseRequest( InputStream clientInputStream) throws InvalidHttpRequestException, IOException
 	{
+		BufferedReader br = new BufferedReader( new InputStreamReader( clientInputStream));
+
+		ArrayList<String> requestArray = new ArrayList<String>();
+		String testLine;
+		//Wait for an empty line containing only a CRLF \r\n
+		while( ! (testLine = br.readLine()).isEmpty())
+		{
+			System.out.println(testLine);
+			requestArray.add( testLine);
+		}
+
 		HttpRequest req = new HttpRequest();
 
-		String[] lines = requestStrings;
+		String[] lines = requestArray.toArray( new String[] {});
 
 		try{
 			//Split the request line
@@ -36,6 +53,8 @@ public class HttpParser
 			else if( req_line[2].contains("HTTP/1.0"))
 				req.setProtocolVersion(1.0f);
 			else throw new InvalidHttpRequestException( HttpResponse.HttpResponseStatus.HTTP_505_HTTP_VERSION_NOT_SUPPORTED);
+
+			System.out.println( req_line[0] + " " + req_line[1] + " " + req_line[2] );
 
 			//Parse the Header field
 			for( String line : lines)

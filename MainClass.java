@@ -7,7 +7,7 @@ public class MainClass
 	public static void main( String[] args) throws IOException
 	{
 		System.out.println("Starting Server..");
-		new MyServer().start();
+		new HttpServer().start();
 		System.out.println("Server Started..");
 	}
 }
