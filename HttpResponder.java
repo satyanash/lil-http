@@ -16,7 +16,6 @@ public class HttpResponder
 {
 	public static void respond( HttpResponse response, OutputStream clientOutputStream, boolean autoFlush) throws IOException
 	{
-		System.out.println("Serving....Request....");
 		HttpResponse.HttpResponseStatus status = response.getStatus();
 		//If request has already failed due to some reason
 		if( status.getStatusCode() >= 300 )
@@ -28,7 +27,6 @@ public class HttpResponder
 		{
 			try{
 				clientOutputStream.write( generateHttpResponsePage( response));
-				System.out.println("Request Written");
 			}catch( FileNotFoundException f)
 			{
 				//A 404 - NOT FOUND error has occured
@@ -47,7 +45,7 @@ public class HttpResponder
 		HttpResponse.HttpResponseStatus status = response.getStatus();
 		StringBuffer buf = new StringBuffer();
 
-		File resource = new File( "./" + response.getResource());
+		File resource = new File( HttpServer.HTTP_ROOT + response.getResource());
 		FileInputStream fr = new FileInputStream( resource);
 
 		buf.append("HTTP/1.1 " + status.getStatusCode() + " " + status.getReason());
@@ -92,7 +90,7 @@ public class HttpResponder
 
 		try{
 			//Try a custom Error file first.
-			FileInputStream fr = new FileInputStream( "./" + HttpServer.ERROR_PAGE_DIR + "/" + status.getStatusCode() + ".html");
+			FileInputStream fr = new FileInputStream( HttpServer.HTTP_ROOT + HttpServer.ERROR_PAGE_DIR + "/" + status.getStatusCode() + ".html");
 			int oneByte;
 			//Go byte by byte, till end of file is reached
 			while( (oneByte = fr.read()) != -1)

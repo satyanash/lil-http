@@ -17,7 +17,8 @@ public class HttpParser
 		//Wait for an empty line containing only a CRLF \r\n
 		while( ! (testLine = br.readLine()).isEmpty())
 		{
-			System.out.println(testLine);
+			//Don't echo unless required
+			//System.out.println(testLine);
 			requestArray.add( testLine);
 		}
 
@@ -53,8 +54,6 @@ public class HttpParser
 			else if( req_line[2].contains("HTTP/1.0"))
 				req.setProtocolVersion(1.0f);
 			else throw new InvalidHttpRequestException( HttpResponse.HttpResponseStatus.HTTP_505_HTTP_VERSION_NOT_SUPPORTED);
-
-			System.out.println( req_line[0] + " " + req_line[1] + " " + req_line[2] );
 
 			//Parse the Header field
 			for( String line : lines)
