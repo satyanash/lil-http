@@ -1,7 +1,7 @@
 package satyanash.jHTTP;
 
-import java.net.*;
-import java.io.*;
+import java.net.Socket;
+import java.io.IOException;
 import java.util.Date;
 
 public class HttpServiceThread extends Thread
