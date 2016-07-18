@@ -1,0 +1,15 @@
+## Velocity Template.
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>lilHTTP welcome</title>
+		<link type="text/css" rel="stylesheet" href="/assets/bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
+	</head>
+	<body class="container">
+		<div class="jumbotron" style="min-height:300px;margin-top:20%;">
+			<h1>lilHTTP</h1>
+			<p>Welcome to the lilHTTP file server</p>
+			<p><a class="btn btn-primary btn-lg" href="/browse/" role="button">Start Browsing</a></p>
+		</div>
+	</body>
+</html>

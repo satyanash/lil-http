@@ -1,16 +1,9 @@
-package satyanash.jHTTP;
+package in.co.kanetkar.lilhttp;
 
 import java.util.Date;
 
 public class HttpRequest
 {
-	/*public static final int GET = 1;
-	public static final int POST = 2;
-	public static final int PUT = 3;
-	public static final int DELETE = 4;
-	public static final int TRACE = 5;
-	public static final int HEAD = 6;*/
-
 	public static enum Method{ GET, POST, PUT, DELETE, TRACE, HEAD};
 
 	private String resource;
@@ -40,6 +33,11 @@ public class HttpRequest
 
 	public String getAcceptLanguage() {
 		return acceptLanguage;
+	}
+
+	@Override
+	public String toString() {
+		return "HttpRequest{" + "resource=" + resource + ", referer=" + referer + ", host=" + host + ", connection=" + connection + ", userAgent=" + userAgent + ", accept=" + accept + ", acceptEncoding=" + acceptEncoding + ", acceptLanguage=" + acceptLanguage + ", protocolVersion=" + protocolVersion + ", method=" + method + '}';
 	}
 
 	public String getAccept() {

@@ -1,0 +1,12 @@
+## Velocity Template.
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>$dir.name</title>
+		<link type="text/css" rel="stylesheet" href="/assets/bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
+	</head>
+	<body class="container">
+		<h1 class="page-header">$status.statusCode - $status.reason</h1>
+		<p>$message</p>
+	</body>
+</html>

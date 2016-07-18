@@ -1,0 +1,52 @@
+## Velocity Template.
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>$dir.name</title>
+		<link type="text/css" rel="stylesheet" href="/assets/bootstrap-3.3.6-dist/css/bootstrap.min.css"/>
+	</head>
+	<body class="container">
+		<h1 class="page-header">
+			<span class="glyphicon glyphicon-folder-open"></span>
+			$dir.name
+		</h1>
+		<p>Absolute Path: <b>$dir.path</b></p>
+
+		<table class="table table-striped">
+		<thead>
+			<th>Type</th>
+			<th>File Name</th>
+			<th>Size (bytes)</th>
+			<th>Last Modified</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<span class="glyphicon glyphicon-arrow-left"></span>
+				</td>
+				<td>
+					<a href="..">..</a>
+				</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			#foreach( $file in $files )
+			<tr>
+				<td>
+					#if($file.directory)
+						<span class="glyphicon glyphicon-folder-close"></span>
+					#elseif($file.file)
+						<span class="glyphicon glyphicon-file"></span>
+					#end
+				</td>
+				<td>
+					<a href="$file.name">$file.name</a>
+				</td>
+				<td>$file.length()</td>
+				<td>$dateTool.format("dd-MMM-yyyy", $file.lastModified())</td>
+			</tr>
+			#end
+		</tbody>
+		</table>
+	</body>
+</html>
