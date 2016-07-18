@@ -1,5 +1,6 @@
 package in.co.kanetkar.lilhttp;
 
+import in.co.kanetkar.lilhttp.error.InvalidHttpRequestException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.InputStream;

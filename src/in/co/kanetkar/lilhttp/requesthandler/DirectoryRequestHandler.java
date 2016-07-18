@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package in.co.kanetkar.lilhttp;
+package in.co.kanetkar.lilhttp.requesthandler;
 
+import in.co.kanetkar.lilhttp.HttpRequest;
+import in.co.kanetkar.lilhttp.HttpResponse;
+import in.co.kanetkar.lilhttp.ServerConfig;
+import in.co.kanetkar.lilhttp.VelocityUtils;
 import java.io.File;
 import java.io.StringWriter;
 import java.util.Date;

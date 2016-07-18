@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package in.co.kanetkar.lilhttp;
+package in.co.kanetkar.lilhttp.requesthandler;
+
+import in.co.kanetkar.lilhttp.HttpRequest;
+import in.co.kanetkar.lilhttp.HttpResponse;
 
 /**
  *

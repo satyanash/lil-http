@@ -1,4 +1,6 @@
-package in.co.kanetkar.lilhttp;
+package in.co.kanetkar.lilhttp.error;
+
+import in.co.kanetkar.lilhttp.HttpResponse;
 
 public class InvalidHttpRequestException extends HttpException
 {
